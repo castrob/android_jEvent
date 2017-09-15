@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         Invitee contact2 = new Invitee("Yan Humphreis","(31)98575-1203","yan.h.goncalves@sga.pucminas.br");
         inviteeList.add(contact2);
 
-        adapter = new MyAdapter(inviteeList,this);
+        adapter = new InviteeAdapter(inviteeList,this);
         recyclerView.setAdapter(adapter);
     }
 

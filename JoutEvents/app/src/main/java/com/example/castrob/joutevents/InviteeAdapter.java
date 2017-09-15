@@ -13,12 +13,12 @@ import java.util.List;
  * Created by castro on 9/14/17.
  */
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>{
+public class InviteeAdapter extends RecyclerView.Adapter<InviteeAdapter.ViewHolder>{
 
     private List<Invitee> inviteeList;
     private Context context;
 
-    public MyAdapter(List<Invitee> inviteeList, Context context){
+    public InviteeAdapter(List<Invitee> inviteeList, Context context){
         this.inviteeList = inviteeList;
         this.context = context;
     }
