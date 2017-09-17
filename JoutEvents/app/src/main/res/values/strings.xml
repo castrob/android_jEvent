@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Jout Events</string>
+    <string name="tv_eventName">Nome do Evento</string>
+    <string name="tv_organizerName">Nome do Organizador</string>
+    <string name="tv_organizerFone">Telefone do Organizer</string>
+    <string name="tv_eventDate">Data do Evento</string>
+    <string name="lbl_inviteeList">Lista de Convidados</string>
+    <string name="tv_eventlist">Eventos</string>
 </resources>

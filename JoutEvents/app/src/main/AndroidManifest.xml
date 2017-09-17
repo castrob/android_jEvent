@@ -9,13 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".EventActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".InviteeActivity"
+            android:parentActivityName=".EventActivity"
+            android:label="@string/lbl_inviteeList">
+            <meta-data
+                android:name="android.support.EventActivity"
+                android:value="com.example.castrob.joutevents.EventActivity" />
+        </activity>
+
     </application>
 
 </manifest>

@@ -1,12 +1,13 @@
 package com.example.castrob.joutevents;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by castro on 15/09/17.
  */
 
-public class Event {
+public class Event implements Serializable {
 
     private String eventName;
     private String dateBegin;

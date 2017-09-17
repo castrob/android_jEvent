@@ -1,10 +1,12 @@
 package com.example.castrob.joutevents;
 
+import java.io.Serializable;
+
 /**
  * Created by castro on 9/14/17.
  */
 
-public class Invitee {
+public class Invitee implements Serializable{
 
     private String name;
     private String contact;
