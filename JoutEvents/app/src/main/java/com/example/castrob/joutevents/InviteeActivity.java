@@ -15,6 +15,7 @@ import java.util.List;
 public class InviteeActivity extends AppCompatActivity implements View.OnClickListener{
 
     public static final int ADD_INVITEE = 10;
+    public static final int RESULT_OK = 12;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private Event thisEvent;
@@ -28,26 +29,22 @@ public class InviteeActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_invitee);
         thisIntent = getIntent();
         thisEvent = (Event) thisIntent.getExtras().getSerializable("EXTRA_EVENT");
-        if (thisEvent != null) {
-            inviteeList = thisEvent.getInviteeList();
-            recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-            recyclerView.setHasFixedSize(true);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        inviteeList = thisEvent.getInviteeList();
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-            adapter = new InviteeAdapter(inviteeList ,this);
-            recyclerView.setAdapter(adapter);
-        }
+        adapter = new InviteeAdapter(inviteeList ,this);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == ADD_INVITEE && resultCode == RESULT_OK){
-            Intent newList = data;
-            Event event = (Event) newList.getExtras().getSerializable("EXTRA_EVENT");
+            Event event = (Event) data.getExtras().getSerializable("EXTRA_ADD");
+            this.thisEvent = event;
             adapter = new InviteeAdapter(event.getInviteeList(),this);
             recyclerView.setAdapter(adapter);
-        }
     }
 
     @Override

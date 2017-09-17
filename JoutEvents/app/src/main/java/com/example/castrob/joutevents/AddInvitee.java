@@ -26,7 +26,7 @@ public class AddInvitee extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_invitee);
         thisIntent = getIntent();
-        thisEvent = (Event) thisIntent.getExtras().getSerializable("EVENT_ADD");
+        thisEvent = (Event) thisIntent.getExtras().getSerializable("EXTRA_ADD");
         invitees = thisEvent != null ? thisEvent.getInviteeList() : null;
 
         editTextName = (EditText) findViewById(R.id.et_name);
@@ -40,22 +40,23 @@ public class AddInvitee extends AppCompatActivity {
         if(editTextName.getText().toString().trim().equals("")){
             editTextName.setError("Favor preencher campo Nome!");
         }else{
-            name = editTextName.getText().toString();
             // testing if phone is filled
             if(editTextPhone.getText().toString().trim().equals("")){
                 editTextPhone.setError("Favor preencher campo Telefone!");
             }else{
-                phone = editTextPhone.getText().toString();
                 //testing if email is filled
                 if(editTextEmail.getText().toString().trim().equals("")){
                     editTextEmail.setError("Favor preencher campo Email!");
                 }else{
                     email = editTextEmail.getText().toString();
+                    phone = editTextPhone.getText().toString();
+                    name = editTextName.getText().toString();
                     Invitee newInvitee = new Invitee(name,phone,email);
                     invitees.add(newInvitee);
                     thisEvent.setInviteeList(invitees);
-                    goBackIntent.putExtra("EXTRA_EVENT",thisEvent);
+                    goBackIntent.putExtra("EXTRA_ADD",thisEvent);
                     setResult(RESULT_OK,goBackIntent);
+                    finish();
                 }
             }
         }

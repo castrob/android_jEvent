@@ -13,4 +13,16 @@
     <string name="lbl_addperson">Novo Convidado</string>
     <string name="action_apply">Confirmar</string>
     <string name="btn_addInvitee">Novo Convidado</string>
+    <string name="lbl_addevent">Novo Evento</string>
+    <string name="tv_eventorganizer">Organizador</string>
+    <string name="tv_newevent">Evento</string>
+    <string name="et_hintorganizername">Nome do Organizador</string>
+    <string name="et_hintorganizerphone">Telefone do Organizador</string>
+    <string name="et_hintorganizadoremail">Email do Organizador</string>
+    <string name="et_hintoreventname">Nome do Evento</string>
+    <string name="et_hinteventbegindate">Data Inicio</string>
+    <string name="et_hinteventbegintime">Hora início</string>
+    <string name="et_hinteventenddate">Data fim</string>
+    <string name="et_hinteventendtime">Hora Fim</string>
+    <string name="btn_addEvent">Criar Evento</string>
 </resources>

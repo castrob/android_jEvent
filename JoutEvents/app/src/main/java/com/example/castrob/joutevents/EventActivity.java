@@ -1,5 +1,6 @@
 package com.example.castrob.joutevents;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -8,11 +9,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class EventActivity extends AppCompatActivity implements View.OnClickListener{
 
+    public static final int ADD_EVENT = 0;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<Event> eventList;
@@ -22,26 +25,19 @@ public class EventActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
-
+        this.eventList = new ArrayList<>();
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewEvent);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        eventList = new ArrayList<>();
-        List<Invitee> inviteeList = new ArrayList<>();
-        Invitee contact = new Invitee("Joao Paulo","(31)99594-1208","jpcbpereira@sga.pucminas.br");
-        Invitee contact2 = new Invitee("Yan Humphreis","(31)98575-1203","yan.h.goncalves@sga.pucminas.br");
-        inviteeList.add(contact);
-        inviteeList.add(contact2);
-
-        Invitee organizer = new Invitee("GDG BH", "(31) xxxx-xxxx", "gdgbh@gmail.com");
-        Event eventOne = new Event("DevFest","November 18 - 08:00AM", "November 18 - 19:00PM", organizer, inviteeList);
-        eventList.add(eventOne);
-
-        adapter = new EventAdapter(eventList,this);
-        recyclerView.setAdapter(adapter);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        this.eventList = (List<Event>) data.getExtras().getSerializable("EXTRA_ADD");
+        adapter = new EventAdapter(this.eventList,this);
+        recyclerView.setAdapter(adapter);
+    }
 
     @Override
     public void onClick(View view) {
@@ -53,7 +49,9 @@ public class EventActivity extends AppCompatActivity implements View.OnClickList
                 Toast.makeText(EventActivity.this, "Create Linkedin Event", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.fab_addevent:
-                Toast.makeText(EventActivity.this, "Add Event", Toast.LENGTH_SHORT).show();
+                Intent newEvent = new Intent(this, AddEvent.class);
+                newEvent.putExtra("EXTRA_ADD", (Serializable) this.eventList);
+                startActivityForResult(newEvent,ADD_EVENT);
                 break;
         }
     }
