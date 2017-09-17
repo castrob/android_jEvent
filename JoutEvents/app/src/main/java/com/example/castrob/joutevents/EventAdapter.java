@@ -57,10 +57,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
         public ViewHolder(View itemView){
             super(itemView);
             itemView.setOnClickListener(this);
-            textViewNameEvent = (TextView) itemView.findViewById(R.id.tv_eventname);
-            textViewNameOrganizer = (TextView) itemView.findViewById(R.id.tv_organizername);
-            textViewOganizerFone = (TextView) itemView.findViewById(R.id.tv_organizerfone);
-            textViewEventDate = (TextView) itemView.findViewById(R.id.tv_eventdate);
+            textViewNameEvent = itemView.findViewById(R.id.tv_eventname);
+            textViewNameOrganizer = itemView.findViewById(R.id.tv_organizername);
+            textViewOganizerFone = itemView.findViewById(R.id.tv_organizerfone);
+            textViewEventDate = itemView.findViewById(R.id.tv_eventdate);
         }
 
         @Override

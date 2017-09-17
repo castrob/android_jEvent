@@ -6,4 +6,11 @@
     <string name="tv_eventDate">Data do Evento</string>
     <string name="lbl_inviteeList">Lista de Convidados</string>
     <string name="tv_eventlist">Eventos</string>
+    <string name="et_namefield">Nome</string>
+    <string name="et_hintname">Nome</string>
+    <string name="et_hintphone">Telefone</string>
+    <string name="et_hintemail">Email</string>
+    <string name="lbl_addperson">Novo Convidado</string>
+    <string name="action_apply">Confirmar</string>
+    <string name="btn_addInvitee">Novo Convidado</string>
 </resources>
