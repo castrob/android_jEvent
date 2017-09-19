@@ -14,7 +14,7 @@ import java.util.List;
  * Created by castro on 9/14/17.
  */
 
-public class InviteeAdapter extends RecyclerView.Adapter<InviteeAdapter.ViewHolder>{
+public class InviteeAdapter extends RecyclerView.Adapter<InviteeAdapter.ViewHolder> {
 
     private List<Invitee> inviteeList;
     private Context context;
@@ -43,6 +43,7 @@ public class InviteeAdapter extends RecyclerView.Adapter<InviteeAdapter.ViewHold
         return inviteeList.size();
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView textViewNameInvitee;
         public TextView textViewContactInvitee;
@@ -51,9 +52,9 @@ public class InviteeAdapter extends RecyclerView.Adapter<InviteeAdapter.ViewHold
         public ViewHolder(View itemView){
             super(itemView);
 
-            textViewNameInvitee = (TextView) itemView.findViewById(R.id.tv_fullname);
-            textViewContactInvitee = (TextView) itemView.findViewById(R.id.tv_fonenumber);
-            textViewEmailInvitee = (TextView) itemView.findViewById(R.id.tv_email);
+            textViewNameInvitee = itemView.findViewById(R.id.tv_fullname);
+            textViewContactInvitee = itemView.findViewById(R.id.tv_fonenumber);
+            textViewEmailInvitee = itemView.findViewById(R.id.tv_email);
         }
     }
 }
