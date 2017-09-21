@@ -21,6 +21,7 @@
         android:id="@+id/ll_organizernamefield"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:imeOptions="actionNext"
         android:orientation="horizontal">
 
         <ImageView
@@ -54,6 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:hint="@string/et_hintorganizerphone"
+            android:imeOptions="actionNext"
             android:inputType="phone"/>
     </LinearLayout>
 
@@ -72,6 +74,7 @@
         <EditText
             android:id="@+id/et_organizeremail"
             android:layout_width="match_parent"
+            android:imeOptions="actionNext"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:hint="@string/et_hintorganizadoremail"
@@ -104,6 +107,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:imeOptions="actionNext"
             android:hint="@string/et_hintoreventname"/>
     </LinearLayout>
 
@@ -126,6 +130,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:clickable="true"
+            android:imeOptions="actionNext"
             android:hint="@string/et_hinteventbegindate"
             android:layout_weight="1"/>
 
@@ -135,6 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_weight="1"
+            android:imeOptions="actionNext"
             android:clickable="true"
             android:hint="@string/et_hinteventbegintime"/>
     </LinearLayout>
@@ -158,6 +164,7 @@
             android:layout_marginLeft="16dp"
             android:clickable="true"
             android:hint="@string/et_hinteventenddate"
+            android:imeOptions="actionNext"
             android:layout_weight="1"/>
 
         <EditText
@@ -167,6 +174,7 @@
             android:layout_marginLeft="16dp"
             android:layout_weight="1"
             android:clickable="true"
+            android:imeOptions="actionDone"
             android:hint="@string/et_hinteventendtime"/>
     </LinearLayout>
 

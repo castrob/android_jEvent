@@ -24,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:imeOptions="actionNext"
             android:hint="@string/et_hintname"/>
     </LinearLayout>
     <LinearLayout
@@ -43,6 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:imeOptions="actionNext"
             android:hint="@string/et_hintphone"
             android:inputType="phone"/>
     </LinearLayout>
@@ -65,6 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:hint="@string/et_hintemail"
+            android:imeOptions="actionDone"
             android:inputType="textEmailAddress"/>
     </LinearLayout>
 
