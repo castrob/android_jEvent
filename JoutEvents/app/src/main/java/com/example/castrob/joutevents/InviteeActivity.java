@@ -48,6 +48,17 @@ public class InviteeActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                onBackPressed();
+                Toast.makeText(this, "LALALALALALALAL", Toast.LENGTH_LONG).show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.fab_addinvitee:

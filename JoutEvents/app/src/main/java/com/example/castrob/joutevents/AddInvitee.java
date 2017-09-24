@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -32,6 +33,17 @@ public class AddInvitee extends AppCompatActivity {
         editTextName = (EditText) findViewById(R.id.et_name);
         editTextPhone = (EditText) findViewById(R.id.et_phonenumber);
         editTextEmail = (EditText) findViewById(R.id.et_email);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                onBackPressed();
+                Toast.makeText(this, "LALALALALALALAL", Toast.LENGTH_LONG).show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void onClick (View view){

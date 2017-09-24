@@ -18,6 +18,7 @@ public class Invitee implements Serializable{
         this.email = "";
     }
 
+
     public Invitee(String name, String contact, String email){
         this.name = name;
         this.contact = contact;
