@@ -74,10 +74,15 @@ public class AddEvent extends AppCompatActivity implements View.OnClickListener 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
+<<<<<<< master:app/src/main/java/com/example/castrob/joutevents/AddEvent.java
                 Intent goBackIntent = new Intent(this, EventActivity.class);
                 goBackIntent.putExtra("EXTRA_ADD", (Serializable) events);
                 setResult(RESULT_OK,goBackIntent);
                 finish();
+=======
+                onBackPressed();
+                Toast.makeText(this, "LALALALALALALAL", Toast.LENGTH_LONG).show();
+>>>>>>> Added back functions, app is closing:JoutEvents/app/src/main/java/com/example/castrob/joutevents/AddEvent.java
                 return true;
         }
         return super.onOptionsItemSelected(item);

@@ -41,10 +41,15 @@ public class AddInvitee extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
+<<<<<<< master:app/src/main/java/com/example/castrob/joutevents/AddInvitee.java
                 Intent goBackIntent = new Intent(this, EventActivity.class);
                 goBackIntent.putExtra("EXTRA_ADD", (Serializable) thisEvent);
                 setResult(RESULT_OK,goBackIntent);
                 finish();
+=======
+                onBackPressed();
+                Toast.makeText(this, "LALALALALALALAL", Toast.LENGTH_LONG).show();
+>>>>>>> Added back functions, app is closing:JoutEvents/app/src/main/java/com/example/castrob/joutevents/AddInvitee.java
                 return true;
         }
         return super.onOptionsItemSelected(item);

@@ -52,6 +52,10 @@ public class InviteeActivity extends AppCompatActivity implements View.OnClickLi
         switch (item.getItemId()){
             case android.R.id.home:
                 onBackPressed();
+<<<<<<< master:app/src/main/java/com/example/castrob/joutevents/InviteeActivity.java
+=======
+                Toast.makeText(this, "LALALALALALALAL", Toast.LENGTH_LONG).show();
+>>>>>>> Added back functions, app is closing:JoutEvents/app/src/main/java/com/example/castrob/joutevents/InviteeActivity.java
                 return true;
         }
         return super.onOptionsItemSelected(item);
