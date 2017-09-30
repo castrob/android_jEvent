@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.example.castrob.joutevents.AddEvent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_eventorganizer"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/tv_black"/>
+
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:id="@+id/ll_organizernamefield"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:imeOptions="actionNext"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_person"/>
+
+        <EditText
+            android:id="@+id/et_organizername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:imeOptions="actionNext|actionSend|actionGo"
+            android:maxLines="1"
+            android:hint="@string/et_hintorganizername"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_organizerphonefield"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_phone"/>
+
+        <EditText
+            android:id="@+id/et_organizerphonenumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:hint="@string/et_hintorganizerphone"
+            android:inputType="phone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_organizeremailfield"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_email"/>
+
+        <EditText
+            android:id="@+id/et_organizeremail"
+            android:layout_width="match_parent"
+            android:imeOptions="actionDone"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:hint="@string/et_hintorganizadoremail"
+            android:inputType="textEmailAddress"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_newevent"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/tv_black"/>
+
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:id="@+id/ll_eventnamefield"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_event"/>
+
+        <EditText
+            android:id="@+id/et_eventname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:imeOptions="actionNext"
+            android:maxLines="1"
+            android:hint="@string/et_hintoreventname"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_eventdatefield"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_calendar"/>
+
+        <EditText
+            android:id="@+id/et_eventbegindate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:imeOptions="actionNext"
+            android:hint="@string/et_hinteventbegindate"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/et_eventbegintime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:imeOptions="actionNext"
+            android:clickable="true"
+            android:hint="@string/et_hinteventbegintime"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_eventdateendfield"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_calendar"/>
+
+        <EditText
+            android:id="@+id/et_eventenddate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:hint="@string/et_hinteventenddate"
+            android:imeOptions="actionNext"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/et_eventendtime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:imeOptions="actionNext"
+            android:hint="@string/et_hinteventendtime"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_addevent"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:text="@string/btn_addEvent"/>
+
+</LinearLayout>

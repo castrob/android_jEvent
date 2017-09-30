@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.castrob.joutevents">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".EventActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".InviteeActivity"
+            android:label="@string/lbl_inviteeList"
+            android:parentActivityName=".EventActivity">
+            <meta-data
+                android:name="android.support.EventActivity"
+                android:value="com.example.castrob.joutevents.EventActivity" />
+        </activity>
+        <activity
+            android:name=".AddInvitee"
+            android:label="@string/lbl_addperson"
+            android:parentActivityName=".InviteeActivity">
+            <meta-data
+                android:name="android.support.InviteeActivity"
+                android:value="com.example.castrob.joutevents.InviteeActivity" />
+        </activity>
+        <activity
+            android:name=".AddEvent"
+            android:label="@string/lbl_addevent"
+            android:parentActivityName=".EventActivity">
+            <meta-data
+                android:name="android.support.EventActivity"
+                android:value="com.example.castrob.joutevents.EventActivity" />
+        </activity>
+    </application>
+
+</manifest>
