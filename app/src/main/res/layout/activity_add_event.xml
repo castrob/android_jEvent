@@ -34,7 +34,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:imeOptions="actionNext|actionSend|actionGo"
+            android:inputType="textCapWords"
+            android:focusable="true"
+            android:imeOptions="actionNext"
             android:maxLines="1"
             android:hint="@string/et_hintorganizername"/>
     </LinearLayout>
@@ -56,6 +58,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:focusable="true"
+            android:imeOptions="actionNext"
             android:hint="@string/et_hintorganizerphone"
             android:inputType="phone" />
     </LinearLayout>
@@ -75,9 +79,10 @@
         <EditText
             android:id="@+id/et_organizeremail"
             android:layout_width="match_parent"
-            android:imeOptions="actionDone"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:focusable="true"
+            android:imeOptions="actionNext"
             android:hint="@string/et_hintorganizadoremail"
             android:inputType="textEmailAddress"/>
     </LinearLayout>
@@ -108,7 +113,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:focusable="true"
             android:imeOptions="actionNext"
+            android:inputType="textCapWords"
             android:maxLines="1"
             android:hint="@string/et_hintoreventname"/>
     </LinearLayout>
@@ -131,11 +138,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:clickable="false"
+            android:clickable="true"
             android:cursorVisible="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:imeOptions="actionNext"
+            android:inputType="date"
             android:hint="@string/et_hinteventbegindate"
             android:layout_weight="1"/>
 
@@ -145,8 +153,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_weight="1"
+            android:focusable="true"
             android:imeOptions="actionNext"
             android:clickable="true"
+            android:inputType="time"
             android:hint="@string/et_hinteventbegintime"/>
     </LinearLayout>
 
@@ -167,12 +177,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:clickable="false"
+            android:clickable="true"
             android:cursorVisible="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:hint="@string/et_hinteventenddate"
+            android:focusable="true"
             android:imeOptions="actionNext"
+            android:inputType="date"
+            android:focusableInTouchMode="true"
+            android:hint="@string/et_hinteventenddate"
             android:layout_weight="1"/>
 
         <EditText
@@ -181,7 +192,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_weight="1"
-            android:imeOptions="actionNext"
+            android:inputType="time"
+            android:focusable="true"
+            android:imeOptions="actionDone"
             android:hint="@string/et_hinteventendtime"/>
     </LinearLayout>
 
