@@ -14,11 +14,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventActivity extends AppCompatActivity implements View.OnClickListener{
+public class EventActivity extends AppCompatActivity
+        implements View.OnClickListener, EventAdapter.EventClickListener {
 
     public static final int ADD_EVENT = 0;
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private EventAdapter adapter;
     private List<Event> eventList;
 
 
@@ -27,17 +28,33 @@ public class EventActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
         this.eventList = new ArrayList<>();
+        this.adapter = new EventAdapter();
         recyclerView = (RecyclerView) findViewById(R.id.recyclerViewEvent);
-        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(this.adapter);
+        //recyclerView.setHasFixedSize(true);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        this.eventList = (List<Event>) data.getExtras().getSerializable("EXTRA_ADD");
-        adapter = new EventAdapter(this.eventList,this);
-        recyclerView.setAdapter(adapter);
+
+        // Analyze wich request has ended
+        switch (requestCode) {
+            case ADD_EVENT:
+
+                // If the result was successful
+                if (resultCode == RESULT_OK) {
+//                    this.eventList = (List<Event>) data.getExtras().getSerializable("EXTRA_ADD");
+//                    adapter.update(this.eventList);
+//                    recyclerView.setAdapter(adapter);
+
+                    // This ways is better
+                    Event receivedEvent = (Event) data.getExtras().getSerializable("EXTRA_ADD");
+                    adapter.add(receivedEvent);
+                }
+                break;
+        }
     }
 
     @Override
@@ -59,9 +76,16 @@ public class EventActivity extends AppCompatActivity implements View.OnClickList
 
             case R.id.fab_addevent:
                 Intent newEvent = new Intent(this, AddEvent.class);
-                newEvent.putExtra("EXTRA_ADD", (Serializable) this.eventList);
+//                newEvent.putExtra("EXTRA_ADD", (Serializable) this.eventList);
                 startActivityForResult(newEvent,ADD_EVENT);
                 break;
         }
+    }
+
+    @Override
+    public void onEventClick(Event event) {
+        Intent intent = new Intent(this, InviteeActivity.class);
+        intent.putExtra("EXTRA_EVENT", event);
+        startActivity(intent);
     }
 }

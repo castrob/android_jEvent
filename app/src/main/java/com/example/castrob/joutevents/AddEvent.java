@@ -32,7 +32,7 @@ public class AddEvent extends AppCompatActivity implements View.OnClickListener 
     static final int DIALOG_IDA = 0;
     static final int DIALOG_IDB = 1;
     Intent thisIntent;
-    List<Event> events;
+//    List<Event> events;
 
 
 
@@ -42,7 +42,7 @@ public class AddEvent extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.activity_add_event);
 
         this.thisIntent = getIntent();
-        events = (List<Event>) thisIntent.getExtras().getSerializable("EXTRA_ADD");
+//        events = (List<Event>) thisIntent.getExtras().getSerializable("EXTRA_ADD");
 
 
         // initializing each edittext
@@ -184,8 +184,9 @@ public class AddEvent extends AppCompatActivity implements View.OnClickListener 
                     String dateend = editTextEventEndDate.getText().toString() + " - " + editTextEventEndDate.getText().toString();
                     List<Invitee> inviteeList = new ArrayList<>();
                     Event event = new Event(eventname,datebegin,dateend,organizer,inviteeList);
-                    events.add(event);
+                    // events.add(event);
                     Intent goBackEvent = new Intent(this, EventActivity.class);
+<<<<<<< master:app/src/main/java/com/example/castrob/joutevents/AddEvent.java
 
 
 
@@ -222,6 +223,10 @@ public class AddEvent extends AppCompatActivity implements View.OnClickListener 
                 startActivity(eventIntent);
 
                     goBackEvent.putExtra("EXTRA_ADD", (Serializable) this.events);
+=======
+                    //goBackEvent.putExtra("EXTRA_ADD", (Serializable) this.events);
+                    goBackEvent.putExtra("EXTRA_ADD", (Serializable) event);
+>>>>>>> Fix Buttom Back and added a Scroll to AddEventActivity:JoutEvents/app/src/main/java/com/example/castrob/joutevents/AddEvent.java
                     setResult(RESULT_OK, goBackEvent);
                     finish();
                 break;
