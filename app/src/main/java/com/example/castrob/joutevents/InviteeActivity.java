@@ -18,7 +18,7 @@ public class InviteeActivity extends AppCompatActivity implements View.OnClickLi
     public static final int RESULT_OK = 12;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    public Event thisEvent;
+    private Event thisEvent;
     private Intent thisIntent;
     private List<Invitee> inviteeList;
 
@@ -34,7 +34,7 @@ public class InviteeActivity extends AppCompatActivity implements View.OnClickLi
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new InviteeAdapter(inviteeList, thisEvent,this);
+        adapter = new InviteeAdapter(inviteeList ,this);
         recyclerView.setAdapter(adapter);
     }
 
@@ -43,7 +43,7 @@ public class InviteeActivity extends AppCompatActivity implements View.OnClickLi
         super.onActivityResult(requestCode, resultCode, data);
             Event event = (Event) data.getExtras().getSerializable("EXTRA_ADD");
             this.thisEvent = event;
-            adapter = new InviteeAdapter(event.getInviteeList(),thisEvent, this);
+            adapter = new InviteeAdapter(event.getInviteeList(),this);
             recyclerView.setAdapter(adapter);
     }
 
@@ -52,6 +52,7 @@ public class InviteeActivity extends AppCompatActivity implements View.OnClickLi
         switch (item.getItemId()){
             case android.R.id.home:
                 onBackPressed();
+                Toast.makeText(this, "LALALALALALALAL", Toast.LENGTH_LONG).show();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -65,12 +66,12 @@ public class InviteeActivity extends AppCompatActivity implements View.OnClickLi
                 addInvitee.putExtra("EXTRA_ADD", this.thisEvent);
                 startActivityForResult(addInvitee, ADD_INVITEE);
                 break;
-//            case R.id.btn_removeInvitee:
-//                Toast.makeText(InviteeActivity.this, "Remove Invitee", Toast.LENGTH_SHORT).show();
-//                break;
-//            case R.id.btn_sendmessage:
-//                Toast.makeText(InviteeActivity.this, "Send Wpp Message", Toast.LENGTH_SHORT).show();
-//                break;
+            case R.id.btn_removeInvitee:
+                Toast.makeText(InviteeActivity.this, "Remove Invitee", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.btn_sendmessage:
+                Toast.makeText(InviteeActivity.this, "Send Wpp Message", Toast.LENGTH_SHORT).show();
+                break;
         }
     }
 }

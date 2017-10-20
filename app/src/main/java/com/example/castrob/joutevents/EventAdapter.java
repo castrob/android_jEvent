@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,13 +20,12 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
 
 
     private List<Event> eventList;
-    private Context context;
+    private EventClickListener eventClickListener;
 
-    public EventAdapter(List<Event> eventList, Context context){
-        this.eventList = eventList;
-        this.context = context;
+    public EventAdapter(){
+        this.eventList = new ArrayList<>();
+        this.eventClickListener = null;
     }
-
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -43,6 +43,30 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
         holder.textViewEventDate.setText(event.getDateBegin());
     }
 
+    /**
+     * Updates the content of the RecyclerView
+     * @param eventList new list of Event
+     */
+    public void update(List<Event> eventList){
+        if (eventList != null){
+            this.eventList = eventList;
+        }
+
+        notifyDataSetChanged();
+    }
+
+    /**
+     * Updates the content of the RecyclerView adding a new Event
+     * @param newEvent Event to be added
+     */
+    public void add(Event newEvent){
+        if (newEvent != null){
+            this.eventList.add(newEvent);
+        }
+
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return eventList.size();
@@ -54,7 +78,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
         public TextView textViewOganizerFone;
         public TextView textViewEventDate;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(View itemView){
             super(itemView);
             itemView.setOnClickListener(this);
             textViewNameEvent = itemView.findViewById(R.id.tv_eventname);
@@ -65,9 +89,18 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
 
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(context, InviteeActivity.class);
-            intent.putExtra("EXTRA_EVENT", eventList.get(getAdapterPosition()));
-            context.startActivity(intent);
+            if (eventClickListener != null) {
+                eventClickListener.onEventClick(eventList.get(getAdapterPosition()));
+            }
         }
     }
+
+    public interface EventClickListener {
+        /**
+         * Called when a Event is clicked.
+         * @param event Clicked event
+         */
+        void onEventClick(Event event);
+    }
+
 }

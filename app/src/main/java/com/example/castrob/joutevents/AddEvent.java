@@ -3,7 +3,6 @@ package com.example.castrob.joutevents;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
-import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -32,7 +31,7 @@ public class AddEvent extends AppCompatActivity implements View.OnClickListener 
     static final int DIALOG_IDA = 0;
     static final int DIALOG_IDB = 1;
     Intent thisIntent;
-    List<Event> events;
+//    List<Event> events;
 
 
 
@@ -42,7 +41,7 @@ public class AddEvent extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.activity_add_event);
 
         this.thisIntent = getIntent();
-        events = (List<Event>) thisIntent.getExtras().getSerializable("EXTRA_ADD");
+//        events = (List<Event>) thisIntent.getExtras().getSerializable("EXTRA_ADD");
 
 
         // initializing each edittext
@@ -74,10 +73,8 @@ public class AddEvent extends AppCompatActivity implements View.OnClickListener 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-                Intent goBackIntent = new Intent(this, EventActivity.class);
-                goBackIntent.putExtra("EXTRA_ADD", (Serializable) events);
-                setResult(RESULT_OK,goBackIntent);
-                finish();
+                onBackPressed();
+                Toast.makeText(this, "LALALALALALALAL", Toast.LENGTH_LONG).show();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -179,44 +176,10 @@ public class AddEvent extends AppCompatActivity implements View.OnClickListener 
                     String dateend = editTextEventEndDate.getText().toString() + " - " + editTextEventEndDate.getText().toString();
                     List<Invitee> inviteeList = new ArrayList<>();
                     Event event = new Event(eventname,datebegin,dateend,organizer,inviteeList);
-                    events.add(event);
+                    // events.add(event);
                     Intent goBackEvent = new Intent(this, EventActivity.class);
-
-
-
-                int yearBegin = year_x;
-                int monthBegin = month_x+1;
-                int dayBegin = day_x;
-
-                String [] timeBegin = editTextEventBeginTime.getText().toString().split(":");
-                int hourBegin = Integer.parseInt(timeBegin[0]);
-                int minBegin = Integer.parseInt(timeBegin[1]);
-
-
-                int yearEnd = year_y;
-                int monthEnd = month_y+1;
-                int dayEnd = day_y;
-
-                String [] timeEnd = editTextEventEndTime.getText().toString().split(":");
-                int hourEnd = Integer.parseInt(timeEnd[0]);
-                int minEnd = Integer.parseInt(timeEnd[1]);
-
-
-
-                Calendar calendarIni = Calendar.getInstance();
-                calendarIni.set(yearBegin,monthBegin,dayBegin,hourBegin,minBegin);
-
-                Calendar calendarFim = Calendar.getInstance();
-                calendarFim.set(yearEnd,monthEnd,dayEnd,hourEnd,minEnd);
-
-                Intent eventIntent = new Intent(Intent.ACTION_INSERT);
-                eventIntent.setData(CalendarContract.Events.CONTENT_URI);
-                eventIntent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,calendarIni.getTimeInMillis());
-                eventIntent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, calendarFim.getTimeInMillis());
-                eventIntent.putExtra(CalendarContract.Events.TITLE, editTextEventName.getText().toString());
-                startActivity(eventIntent);
-
-                    goBackEvent.putExtra("EXTRA_ADD", (Serializable) this.events);
+                    //goBackEvent.putExtra("EXTRA_ADD", (Serializable) this.events);
+                    goBackEvent.putExtra("EXTRA_ADD", (Serializable) event);
                     setResult(RESULT_OK, goBackEvent);
                     finish();
                 break;
