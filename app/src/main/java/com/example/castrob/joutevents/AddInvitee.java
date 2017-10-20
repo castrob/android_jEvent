@@ -2,7 +2,6 @@ package com.example.castrob.joutevents;
 
 import android.app.ActionBar;
 import android.content.Intent;
-import android.provider.ContactsContract;
 import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +11,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.io.Serializable;
 import java.util.List;
 
 public class AddInvitee extends AppCompatActivity {
@@ -41,15 +39,8 @@ public class AddInvitee extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-<<<<<<< master:app/src/main/java/com/example/castrob/joutevents/AddInvitee.java
-                Intent goBackIntent = new Intent(this, EventActivity.class);
-                goBackIntent.putExtra("EXTRA_ADD", (Serializable) thisEvent);
-                setResult(RESULT_OK,goBackIntent);
-                finish();
-=======
                 onBackPressed();
                 Toast.makeText(this, "LALALALALALALAL", Toast.LENGTH_LONG).show();
->>>>>>> Added back functions, app is closing:JoutEvents/app/src/main/java/com/example/castrob/joutevents/AddInvitee.java
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -72,21 +63,6 @@ public class AddInvitee extends AppCompatActivity {
                     email = editTextEmail.getText().toString();
                     phone = editTextPhone.getText().toString();
                     name = editTextName.getText().toString();
-
-
-                    Intent intent = new Intent(ContactsContract.Intents.Insert.ACTION);
-                    intent.setType(ContactsContract.RawContacts.CONTENT_TYPE);
-
-                    //mudando o nome
-                    intent.putExtra(ContactsContract.Intents.Insert.NAME, name);
-
-                    //mudando o telefone
-                    intent.putExtra(ContactsContract.Intents.Insert.PHONE, phone);
-                    intent.putExtra(ContactsContract.Intents.Insert.PHONE_TYPE, ContactsContract.CommonDataKinds.Phone.TYPE_HOME);
-
-                    intent.putExtra(ContactsContract.Intents.Insert.EMAIL, email);
-                    startActivity(intent);
-
                     Invitee newInvitee = new Invitee(name,phone,email);
                     invitees.add(newInvitee);
                     thisEvent.setInviteeList(invitees);

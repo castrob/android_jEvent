@@ -3,7 +3,6 @@ package com.example.castrob.joutevents;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
-import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -74,15 +73,8 @@ public class AddEvent extends AppCompatActivity implements View.OnClickListener 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-<<<<<<< master:app/src/main/java/com/example/castrob/joutevents/AddEvent.java
-                Intent goBackIntent = new Intent(this, EventActivity.class);
-                goBackIntent.putExtra("EXTRA_ADD", (Serializable) events);
-                setResult(RESULT_OK,goBackIntent);
-                finish();
-=======
                 onBackPressed();
                 Toast.makeText(this, "LALALALALALALAL", Toast.LENGTH_LONG).show();
->>>>>>> Added back functions, app is closing:JoutEvents/app/src/main/java/com/example/castrob/joutevents/AddEvent.java
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -186,47 +178,8 @@ public class AddEvent extends AppCompatActivity implements View.OnClickListener 
                     Event event = new Event(eventname,datebegin,dateend,organizer,inviteeList);
                     // events.add(event);
                     Intent goBackEvent = new Intent(this, EventActivity.class);
-<<<<<<< master:app/src/main/java/com/example/castrob/joutevents/AddEvent.java
-
-
-
-                int yearBegin = year_x;
-                int monthBegin = month_x+1;
-                int dayBegin = day_x;
-
-                String [] timeBegin = editTextEventBeginTime.getText().toString().split(":");
-                int hourBegin = Integer.parseInt(timeBegin[0]);
-                int minBegin = Integer.parseInt(timeBegin[1]);
-
-
-                int yearEnd = year_y;
-                int monthEnd = month_y+1;
-                int dayEnd = day_y;
-
-                String [] timeEnd = editTextEventEndTime.getText().toString().split(":");
-                int hourEnd = Integer.parseInt(timeEnd[0]);
-                int minEnd = Integer.parseInt(timeEnd[1]);
-
-
-
-                Calendar calendarIni = Calendar.getInstance();
-                calendarIni.set(yearBegin,monthBegin,dayBegin,hourBegin,minBegin);
-
-                Calendar calendarFim = Calendar.getInstance();
-                calendarFim.set(yearEnd,monthEnd,dayEnd,hourEnd,minEnd);
-
-                Intent eventIntent = new Intent(Intent.ACTION_INSERT);
-                eventIntent.setData(CalendarContract.Events.CONTENT_URI);
-                eventIntent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,calendarIni.getTimeInMillis());
-                eventIntent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, calendarFim.getTimeInMillis());
-                eventIntent.putExtra(CalendarContract.Events.TITLE, editTextEventName.getText().toString());
-                startActivity(eventIntent);
-
-                    goBackEvent.putExtra("EXTRA_ADD", (Serializable) this.events);
-=======
                     //goBackEvent.putExtra("EXTRA_ADD", (Serializable) this.events);
                     goBackEvent.putExtra("EXTRA_ADD", (Serializable) event);
->>>>>>> Fix Buttom Back and added a Scroll to AddEventActivity:JoutEvents/app/src/main/java/com/example/castrob/joutevents/AddEvent.java
                     setResult(RESULT_OK, goBackEvent);
                     finish();
                 break;

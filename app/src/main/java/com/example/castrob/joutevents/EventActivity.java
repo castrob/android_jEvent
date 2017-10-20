@@ -1,7 +1,6 @@
 package com.example.castrob.joutevents;
 
 import android.content.Intent;
-import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -64,16 +63,8 @@ public class EventActivity extends AppCompatActivity
                 Toast.makeText(EventActivity.this, "Create Facebook Event", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_createlinkedinevent:
-                String mensagem = "Favor inserir dados do Evento!";
-                Intent intent = ShareCompat.IntentBuilder.from(EventActivity.this).setType("text/plain")
-                        .setText(mensagem).getIntent();
-                intent.setPackage("com.linkedin.android");
-                intent.setAction(Intent.ACTION_SEND);
-                if ( intent.resolveActivity(getPackageManager()) != null ) {
-                    startActivity(intent);
-                }
+                Toast.makeText(EventActivity.this, "Create Linkedin Event", Toast.LENGTH_SHORT).show();
                 break;
-
             case R.id.fab_addevent:
                 Intent newEvent = new Intent(this, AddEvent.class);
 //                newEvent.putExtra("EXTRA_ADD", (Serializable) this.eventList);

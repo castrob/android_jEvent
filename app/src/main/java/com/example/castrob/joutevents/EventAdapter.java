@@ -78,7 +78,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
         public TextView textViewOganizerFone;
         public TextView textViewEventDate;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(View itemView){
             super(itemView);
             itemView.setOnClickListener(this);
             textViewNameEvent = itemView.findViewById(R.id.tv_eventname);
@@ -94,8 +94,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
             }
         }
     }
-<<<<<<< master:app/src/main/java/com/example/castrob/joutevents/EventAdapter.java
-=======
 
     public interface EventClickListener {
         /**
@@ -105,5 +103,4 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder>{
         void onEventClick(Event event);
     }
 
->>>>>>> Fix Buttom Back and added a Scroll to AddEventActivity:JoutEvents/app/src/main/java/com/example/castrob/joutevents/EventAdapter.java
 }
