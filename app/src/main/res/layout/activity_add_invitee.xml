@@ -24,7 +24,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:focusable="true"
+            android:clickable="true"
             android:imeOptions="actionNext"
+            android:inputType="textCapWords"
             android:hint="@string/et_hintname"/>
     </LinearLayout>
     <LinearLayout
@@ -44,6 +47,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:focusable="true"
+            android:clickable="true"
             android:imeOptions="actionNext"
             android:hint="@string/et_hintphone"
             android:inputType="phone"/>
@@ -67,6 +72,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:hint="@string/et_hintemail"
+            android:focusable="true"
+            android:clickable="true"
             android:imeOptions="actionDone"
             android:inputType="textEmailAddress"/>
     </LinearLayout>
